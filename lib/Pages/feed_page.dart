@@ -9,7 +9,7 @@ class FeedPage extends StatelessWidget {
         elevation: 0,
         backgroundColor: Colors.white,
         title: Text(
-          'Instagram',
+          'VGRAMAI',
           style: TextStyle(fontStyle: FontStyle.italic, color: Colors.black),
         ),
         actions: [
@@ -66,37 +66,83 @@ class FeedPage extends StatelessWidget {
           Expanded(child: ListView.builder(
             itemBuilder: (context, index) {
               return Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 10),
-                child: Container(
-                  width: 100,
-                  height: 200,
-                  color: Colors.blue,
-                  child: Padding(
-                    padding: const EdgeInsets.all(10),
-                    child: Column(
-                      children: [
-                        Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Container(
-                              height: 50,
-                              width: 50,
-                              decoration: BoxDecoration(
-                                  color: Colors.brown,
-                                  borderRadius: BorderRadius.circular(50 / 2)),
+                  padding: const EdgeInsets.symmetric(horizontal: 15),
+                  child: Container(
+                    width: 200,
+                    height: 350,
+                    child: Padding(
+                      padding: const EdgeInsets.all(10),
+                      child: Column(
+                        children: [
+                          Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Container(
+                                height: 50,
+                                width: 50,
+                                decoration: BoxDecoration(
+                                    color: Colors.brown,
+                                    image: DecorationImage(
+                                        fit: BoxFit.cover,
+                                        image: NetworkImage(
+                                            'https://picsum.photos/id/${index + 240}/200/300')),
+                                    borderRadius:
+                                        BorderRadius.circular(50 / 2)),
+                              ),
+                              Expanded(
+                                child: ListTile(
+                                  title: Text(
+                                    'Username',
+                                    style:
+                                        TextStyle(fontWeight: FontWeight.bold),
+                                  ),
+                                  trailing: IconButton(
+                                      onPressed: () {},
+                                      icon: Icon(
+                                        Icons.more_vert_rounded,
+                                        color: Colors.black,
+                                      )),
+                                ),
+                              )
+                            ],
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Image.network(
+                            'https://picsum.photos/id/${index + 238}/200/300',
+                            fit: BoxFit.fitWidth,
+                            width: 450,
+                            height: 180,
+                          ),
+                          SizedBox(height: 20),
+                          Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 10),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                Icon(
+                                  Icons.houseboat_rounded,
+                                  color: Colors.black,
+                                ),
+                                SizedBox(width: 20),
+                                Icon(
+                                  Icons.houseboat_rounded,
+                                  color: Colors.black,
+                                ),
+                                SizedBox(width: 20),
+                                Icon(
+                                  Icons.houseboat_rounded,
+                                  color: Colors.black,
+                                ),
+                              ],
                             ),
-                            Expanded(
-                                child: Row(
-                              children: [Text('Usernmae')],
-                            ))
-                          ],
-                        ),
-                      ],
+                          )
+                        ],
+                      ),
                     ),
-                  ),
-                  margin: EdgeInsets.only(bottom: 10),
-                ),
-              );
+                    margin: EdgeInsets.only(bottom: 10),
+                  ));
             },
           ))
         ],

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:instagram_ui/Pages/feed_page.dart';
 import '../widgets/profile_pricture.dart';
 import '../widgets/info_item.dart';
 import '../widgets/story_item.dart';
@@ -12,6 +13,7 @@ class ProfilePage extends StatefulWidget {
 class _ProfilePageState extends State<ProfilePage> {
   late int index = 0;
 
+  List<Widget> pages = [ProfilePage(), FeedPage()];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -160,27 +162,6 @@ class _ProfilePageState extends State<ProfilePage> {
           )
         ],
       ),
-      bottomNavigationBar: BottomNavigationBar(
-          showSelectedLabels: false,
-          showUnselectedLabels: false,
-          selectedItemColor: Colors.black,
-          unselectedItemColor: Colors.grey[350],
-          onTap: (value) {
-            index = value;
-            print(index);
-            setState(() {});
-          },
-          currentIndex: index,
-          items: [
-            BottomNavigationBarItem(
-                icon: Icon(Icons.home_filled), label: 'home'),
-            BottomNavigationBarItem(icon: Icon(Icons.search), label: 'search'),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.movie_outlined), label: 'movie'),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.shopping_cart_sharp), label: 'Chart'),
-            BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Person'),
-          ]),
     );
   }
 }
